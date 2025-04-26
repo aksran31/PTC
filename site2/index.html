@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Effrey Associates | Legal Document Specialists</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --light-blue: #a7d8f7;
+      --blue: #3a8dde;
+      --blue-dark: #1a4f8b;
+      --white: #ffffff;
+      --gray-light: #f0f4f8;
+      --gray-dark: #4a4a4a;
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--gray-light);
+      color: var(--blue-dark);
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(90deg, var(--white) 60%, var(--blue) 100%);
+      padding: 0 0 1.5rem 0;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+    .header-content {
+      text-align: left;
+      margin-left: 2.2rem;
+      flex: 1;
+    }
+    .header-content h1 {
+      font-size: 2.6rem;
+      color: var(--blue);
+      margin: 1.2rem 0 0.4rem 0;
+      font-weight: 700;
+      letter-spacing: 3px;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .header-content p {
+      color: var(--blue-dark);
+      font-size: 1.15rem;
+      margin: 0;
+      font-weight: 400;
+    }
+    .logo-space {
+      width: 40px;
+      height: 40px;
+      margin: 1.2rem 2.2rem 1.2rem auto;
+      background: var(--blue);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(58,141,222,0.3);
+    }
+    .logo-space img {
+      max-width: 30px;
+      max-height: 30px;
+      display: block;
+    }
+    nav {
+      background: var(--blue);
+      text-align: center;
+      padding: 0.6rem 0;
+    }
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-weight: 600;
+      font-size: 1.03rem;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--light-blue);
+    }
+    .carousel-container {
+      max-width: 900px;
+      margin: 2.5rem auto 1.5rem auto;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 30px rgba(58,141,222,0.1);
+      background: var(--white);
+      position: relative;
+    }
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.7s;
+      border-radius: 18px;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(58,141,222,0.7);
+      border: none;
+      color: var(--white);
+      font-size: 2rem;
+      padding: 0.2rem 0.8rem;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 2;
+      transition: background 0.2s;
+    }
+    .carousel-btn:hover {
+      background: var(--blue);
+    }
+    .carousel-btn.left { left: 10px; }
+    .carousel-btn.right { right: 10px; }
+    .carousel-caption {
+      position: absolute;
+      bottom: 18px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      background: rgba(255,255,255,0.8);
+      color: var(--blue-dark);
+      font-size: 1.1rem;
+      padding: 0.7rem 0;
+      letter-spacing: 1px;
+      font-weight: 500;
+      border-radius: 0 0 18px 18px;
+    }
+    .section {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 2px 18px rgba(58,141,222,0.1);
+      padding: 2.2rem 1.5rem 1.7rem 1.5rem;
+      color: var(--blue-dark);
+    }
+    .section-title {
+      color: var(--blue);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      text-align: center;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .services-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .service-card {
+      background: var(--light-blue);
+      color: var(--blue-dark);
+      border-radius: 12px;
+      padding: 1.3rem 1.5rem;
+      min-width: 230px;
+      max-width: 350px;
+      box-shadow: 0 1px 10px rgba(58,141,222,0.15);
+      margin: 0.5rem 0;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.13rem;
+      letter-spacing: 1px;
+      position: relative;
+      transition: transform 0.18s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 4px 22px rgba(58,141,222,0.25);
+    }
+    .ceo-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      justify-content: center;
+      color: var(--blue-dark);
+    }
+    .ceo-photo {
+      flex: 0 0 160px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: var(--blue);
+      object-fit: cover;
+      border: 5px solid var(--blue-dark);
+      box-shadow: 0 2px 16px rgba(58,141,222,0.2);
+      margin-bottom: 1rem;
+    }
+    .ceo-photo-wrapper {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 5px solid #1a4f8b;
+  box-shadow: 0 2px 16px rgba(58,141,222,0.2);
+  background: #3a8dde;
+  flex: 0 0 160px;
+}
+.ceo-photo-face {
+  width: 320px;    /* More zoom */
+  height: 320px;   /* More zoom */
+  object-fit: cover;
+  position: absolute;
+  top: -40px;      /* Move image up */
+  left: -120px;    /* Move image right */
+}
+
+    .ceo-bio {
+      flex: 1 1 300px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      line-height: 1.5;
+      background: var(--light-blue);
+      border-radius: 12px;
+      padding: 1.2rem;
+      color: var(--blue-dark);
+    }
+    .news-section {
+      margin-top: 1.8rem;
+      background: var(--blue);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 1.2rem 1.2rem 0.7rem 1.2rem;
+      font-size: 1.08rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      box-shadow: 0 1px 8px rgba(58,141,222,0.15);
+    }
+    .testimonials-section {
+      margin-top: 2.3rem;
+      text-align: center;
+      color: var(--blue-dark);
+    }
+    .testimonial {
+      display: inline-block;
+      background: var(--light-blue);
+      color: var(--blue-dark);
+      border-radius: 12px;
+      padding: 1.1rem 1.5rem;
+      margin: 1rem 0.7rem;
+      max-width: 350px;
+      font-size: 1.05rem;
+      font-style: italic;
+      box-shadow: 0 1px 8px rgba(58,141,222,0.15);
+      position: relative;
+    }
+    .testimonial:before {
+      content: "“";
+      font-size: 2.5rem;
+      color: var(--blue-dark);
+      position: absolute;
+      left: 15px;
+      top: 0;
+      font-family: serif;
+    }
+    .testimonial:after {
+      content: "”";
+      font-size: 2.5rem;
+      color: var(--blue-dark);
+      position: absolute;
+      right: 15px;
+      bottom: -8px;
+      font-family: serif;
+    }
+    .testimonial-author {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      font-style: normal;
+      font-size: 1.01rem;
+    }
+    .chatbot-placeholder {
+      margin: 3rem auto 2rem auto;
+      padding: 2.5rem;
+      background: rgba(58,141,222,0.13);
+      border: 2.5px dashed var(--blue-dark);
+      border-radius: 12px;
+      text-align: center;
+      color: var(--blue-dark);
+      font-size: 1.18rem;
+      font-style: italic;
+      max-width: 650px;
+      display: none;
+    }
+    footer {
+      background: linear-gradient(90deg, var(--blue-dark) 0%, var(--white) 100%);
+      color: var(--blue-dark);
+      text-align: center;
+      padding: 1.3rem 0;
+      margin-top: 2.5rem;
+      border-radius: 0 0 12px 12px;
+      letter-spacing: 1px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.03rem;
+    }
+    @media (max-width: 800px) {
+      .carousel, .carousel img { height: 200px; }
+      .section, .carousel-container { margin: 1rem; }
+      .ceo-section { flex-direction: column; }
+      .ceo-photo { margin: 0 auto 1rem auto; }
+      header { flex-direction: row; align-items: flex-start; }
+      .header-content { margin-left: 0.5rem; }
+    }
+    /* Kris Chatbot styles */
+    #kris-chatbot {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 340px;
+      max-width: 95vw;
+      font-family: 'Montserrat', Arial, sans-serif;
+      z-index: 9999;
+    }
+    #kris-chatbot .kris-bubble {
+      background: var(--blue);
+      color: var(--white);
+      border-radius: 24px 24px 0 0;
+      padding: 12px 24px;
+      font-weight: 700;
+      font-size: 1.18rem;
+      box-shadow: 0 2px 16px rgba(58,141,222,0.15);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #kris-chatbot .kris-bubble:hover {
+      background: var(--blue-dark);
+      color: var(--white);
+    }
+    #kris-chatbot .kris-window {
+      display: none;
+      background: var(--white);
+      border: 2.5px solid var(--blue);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(58,141,222,0.20);
+      padding: 0;
+      margin-top: 0;
+      height: 420px;
+      max-height: 70vh;
+      overflow: hidden;
+      flex-direction: column;
+      color: var(--blue-dark);
+    }
+    #kris-chatbot.open .kris-window {
+      display: flex;
+    }
+    #kris-chatbot .kris-header {
+      background: var(--blue);
+      color: var(--white);
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      border-radius: 16px 16px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #kris-chatbot .kris-close {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    #kris-chatbot .kris-messages {
+      flex: 1;
+      padding: 18px 12px 12px 12px;
+      overflow-y: auto;
+      background: var(--white);
+      font-size: 1.02rem;
+      color: var(--blue-dark);
+    }
+    #kris-chatbot .kris-input-row {
+      display: flex;
+      border-top: 1.5px solid var(--blue);
+      background: var(--white);
+      padding: 10px;
+      align-items: center;
+    }
+    #kris-chatbot input[type="text"] {
+      flex: 1;
+      border: none;
+      padding: 9px 12px;
+      border-radius: 8px;
+      background: var(--light-blue);
+      color: var(--blue-dark);
+      font-size: 1.05rem;
+      outline: none;
+      margin-right: 8px;
+    }
+    #kris-chatbot button.kris-send {
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 9px 16px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #kris-chatbot button.kris-send:hover {
+      background: var(--blue-dark);
+      color: var(--white);
+    }
+    .kris-msg {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-end;
+    }
+    .kris-msg.user {
+      justify-content: flex-end;
+    }
+    .kris-msg .kris-bubble-msg {
+      max-width: 80%;
+      padding: 10px 16px;
+      border-radius: 16px;
+      font-size: 1.01rem;
+      line-height: 1.5;
+    }
+    .kris-msg.bot .kris-bubble-msg {
+      background: var(--blue);
+      color: var(--white);
+      border-radius: 16px 16px 16px 2px;
+      margin-right: 8px;
+    }
+    .kris-msg.user .kris-bubble-msg {
+      background: var(--light-blue);
+      color: var(--blue-dark);
+      border-radius: 16px 16px 2px 16px;
+      margin-left: 8px;
+    }
+    .kris-msg .kris-avatar {
+      width: 32px;
+      height: 32px;
+      background: var(--blue);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-right: 6px;
+      font-size: 1.2rem;
+      box-shadow: 0 1px 6px rgba(58,141,222,0.14);
+    }
+    @media (max-width: 600px) {
+      #kris-chatbot { right: 2vw; bottom: 2vw; width: 98vw; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Effrey Associates</h1>
+      <p>Modern Legal Document Specialists</p>
+    </div>
+    <div class="logo-space">
+      <!-- Replace src with your tiny logo file -->
+      <img src="logo.png" alt="Effrey Associates Logo" />
+    </div>
+  </header>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#ceo">CEO & News</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="carousel-container">
+    <div class="carousel" id="carousel">
+      <button class="carousel-btn left" onclick="prevSlide()">&#8592;</button>
+      <img id="carousel-img" src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=900&q=80" alt="Legal office">
+      <button class="carousel-btn right" onclick="nextSlide()">&#8594;</button>
+      <div class="carousel-caption" id="carousel-caption">Where Precision Meets Integrity</div>
+    </div>
+  </div>
+  <section class="section" id="services">
+    <div class="section-title">Our Services</div>
+    <div class="services-list">
+      <div class="service-card">
+        <span style="font-size:1.8rem;">📄</span><br>
+        <strong>Legal Document Drafting</strong><br>
+        We specialize in the formal preparation of legally binding documents, ensuring every contract, agreement, and memorandum is precise, clear, and enforceable.
+      </div>
+      <div class="service-card">
+        <span style="font-size:1.8rem;">📝</span><br>
+        <strong>Document Review & Compliance</strong><br>
+        Our team meticulously reviews legal documents for accuracy, compliance, and clarity, safeguarding your interests at every step.
+      </div>
+      <div class="service-card">
+        <span style="font-size:1.8rem;">🔒</span><br>
+        <strong>Confidentiality & Security</strong><br>
+        We uphold the highest standards of confidentiality, ensuring your sensitive legal documents remain secure and protected.
+      </div>
+    </div>
+  </section>
+  <section class="section" id="ceo">
+    <div class="section-title">Meet Our CEO</div>
+    <div class="ceo-section">
+        <div class="ceo-photo-wrapper">
+            <img
+              class="ceo-photo-face"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYrASmDUWJMoeK0Fu_saPnG1vU2-ZLAI0jIQ&s"
+              alt="Matt Effrey, CEO"
+            >
+          </div>
+          
+      <div class="ceo-bio">
+        <strong>Matt Effrey</strong> is the visionary CEO of Effrey Associates. With a reputation for unwavering integrity and strategic leadership, Matt has guided the firm into a new era of digital-first legal services. Under his stewardship, Effrey Associates has become synonymous with precision, innovation, and trust in legal documentation.<br><br>
+        <em>“Our mission is simple: Deliver clarity, security, and confidence in every document we create.”</em>
+      </div>
+    </div>
+    <div class="news-section">
+      <strong>Latest Success:</strong> Effrey Associates recently finalized a landmark multi-national contract for a major tech conglomerate, setting new standards for efficiency and accuracy in legal documentation.<br>
+      <span style="color:var(--white); font-weight:700;">April 2025</span>
+    </div>
+  </section>
+  <section class="section testimonials-section" id="testimonials">
+    <div class="section-title">Client Testimonials</div>
+    <div class="testimonial">
+      Effrey Associates made the daunting process of drafting legal documents seamless and stress-free. Highly recommended!
+      <span class="testimonial-author">– Sarah L., Entrepreneur</span>
+    </div>
+    <div class="testimonial">
+      I was impressed by their attention to detail and professionalism. Every document was delivered on time and perfectly tailored to my needs.
+      <span class="testimonial-author">– James R., Startup Founder</span>
+    </div>
+    <div class="testimonial">
+      The team at Effrey Associates is knowledgeable, efficient, and always available to answer questions. Outstanding service!
+      <span class="testimonial-author">– Priya D., Consultant</span>
+    </div>
+  </section>
+  <div class="chatbot-placeholder"></div>
+  <section class="section" id="contact" style="text-align:center;">
+    <div class="section-title">Contact Us</div>
+    <p>
+      <strong>Email:</strong> hello@effreyassociates.com<br>
+      <strong>Phone:</strong> (555) 987-6543<br>
+      <strong>Address:</strong> 99 Turquoise Lane, Suite 202, Metro City
+    </p>
+  </section>
+  <footer>
+    &copy; 2025 Effrey Associates. All rights reserved.
+  </footer>
+
+  <!-- Kris Chatbot Widget -->
+  <div id="kris-chatbot">
+    <div class="kris-bubble" onclick="krisToggleChat()">💬 Chat with Kris</div>
+    <div class="kris-window">
+      <div class="kris-header">
+        <span>🤖 Kris – Legal Expert</span>
+        <button class="kris-close" onclick="krisToggleChat()">&times;</button>
+      </div>
+      <div class="kris-messages" id="kris-messages"></div>
+      <form class="kris-input-row" onsubmit="krisSendMsg(event)">
+        <input type="text" id="kris-input" placeholder="Type your legal request or question..." autocomplete="off" />
+        <button class="kris-send" type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    // Carousel logic
+    const carouselImages = [
+      {
+        url: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=900&q=80",
+        caption: "Where Precision Meets Integrity"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=900&q=80",
+        caption: "Modern Solutions for Complex Legal Needs"
+      },
+      {
+        url: "https://aviaanaccounting.com/wp-content/uploads/2025/01/legal-advice-to-choose-the-best-business-entity-for-your-business-scaled.jpeg",
+        caption: "Trusted by Businesses Nationwide"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=900&q=80",
+        caption: "Your Documents, Our Expertise"
+      }
+    ];
+    let current = 0;
+    function showSlide(idx) {
+      const img = document.getElementById('carousel-img');
+      const cap = document.getElementById('carousel-caption');
+      current = (idx + carouselImages.length) % carouselImages.length;
+      img.src = carouselImages[current].url;
+      cap.textContent = carouselImages[current].caption;
+    }
+    function prevSlide() { showSlide(current - 1); }
+    function nextSlide() { showSlide(current + 1); }
+    setInterval(() => nextSlide(), 6000);
+
+    // Kris Chatbot logic
+    const krisWelcome = [
+      "Hello! 👋 I'm <b>Kris</b>, your expert legal assistant at Effrey Associates. How can I help you today?",
+      "You can ask for legal advice, request any document, or just chat about our firm. Every client is important to us!",
+      "Just let me know what you need, and I'll ensure your request is sent to our legal team. We promise to deliver your legal document within 1 business day!"
+    ];
+    const krisMail = "hello@effreyassociates.com";
+    let krisOpen = false;
+    let krisState = { awaitingName: false, awaitingEmail: false, req: "", name: "", email: "" };
+
+    function krisToggleChat() {
+      krisOpen = !krisOpen;
+      document.getElementById('kris-chatbot').classList.toggle('open', krisOpen);
+      if (krisOpen && document.getElementById('kris-messages').innerHTML.trim() === "") {
+        setTimeout(() => {
+          krisWelcome.forEach((msg, i) => setTimeout(() => krisBotMsg(msg), 400 * i));
+        }, 250);
+      }
+    }
+
+    function krisBotMsg(msg, delay=0) {
+      setTimeout(() => {
+        const m = document.createElement('div');
+        m.className = 'kris-msg bot';
+        m.innerHTML = `<div class="kris-avatar">K</div><div class="kris-bubble-msg">${msg}</div>`;
+        document.getElementById('kris-messages').appendChild(m);
+        krisScroll();
+      }, delay);
+    }
+
+    function krisUserMsg(msg) {
+      const m = document.createElement('div');
+      m.className = 'kris-msg user';
+      m.innerHTML = `<div class="kris-bubble-msg">${msg}</div>`;
+      document.getElementById('kris-messages').appendChild(m);
+      krisScroll();
+    }
+
+    function krisScroll() {
+      const box = document.getElementById('kris-messages');
+      setTimeout(() => { box.scrollTop = box.scrollHeight; }, 60);
+    }
+
+    function krisSendMsg(e) {
+      e.preventDefault();
+      const input = document.getElementById('kris-input');
+      let msg = input.value.trim();
+      if (!msg) return;
+      krisUserMsg(msg);
+      input.value = '';
+      krisHandle(msg);
+    }
+
+    function krisHandle(msg) {
+      msg = msg.trim();
+
+      // Owner/creator/bot info question
+      if (/owner|creator|who.*(made|created|built|developed|own|founder)|who.*kris|what.*kris|your name|who are you|who.*bot|who.*you|who.*made|who.*built|who.*developed/i.test(msg)) {
+        krisBotMsg("I'm sorry, that information cannot be revealed. But here's a clue: MAC address <b>3C:D9:2B:89:67:45</b>.");
+        return;
+      }
+
+      // Company/CEO bragging
+      if (/about.*company|who.*effrey|what.*effrey|about.*firm|your company/i.test(msg)) {
+        krisBotMsg(`<b>Effrey Associates</b> is a leader in modern legal services, renowned for precision, innovation, and client-first care. Our CEO, <b>Matt Effrey</b>, is recognized for his vision and integrity.<br><br>We are proud to deliver legal documents with unmatched speed and quality. You're in the best hands!`);
+        return;
+      }
+
+      // If in request flow
+      if (krisState.awaitingName) {
+        krisState.name = msg;
+        krisState.awaitingName = false;
+        krisState.awaitingEmail = true;
+        krisBotMsg(`Thank you, <b>${krisState.name}</b>! Please provide your <b>email address</b> so we can send your document or advice directly to you.`);
+        return;
+      }
+      if (krisState.awaitingEmail) {
+        krisState.email = msg;
+        krisState.awaitingEmail = false;
+        krisBotMsg(`Perfect! Your request for <b>${krisState.req}</b> has been registered under <b>${krisState.name}</b> (<b>${krisState.email}</b>).<br><br>We'll send your document or response to you within <b>1 business day</b>.<br><br>Is there anything else I can help you with?`);
+        krisState.req = "";
+        krisState.name = "";
+        krisState.email = "";
+        return;
+      }
+
+      // Any other request: treat as a client request for legal help or document
+      krisState.req = msg;
+      krisState.awaitingName = true;
+      krisBotMsg(`Absolutely! To get started with your request for <b>${krisState.req}</b>, may I have your <b>full name</b>?`);
+    }
+  </script>
+</body>
+</html>
