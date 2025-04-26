@@ -202,6 +202,26 @@
       box-shadow: 0 2px 16px rgba(64,224,208,0.13);
       margin-bottom: 1rem;
     }
+    .ceo-photo-wrapper {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 5px solid #1a4f8b;
+  box-shadow: 0 2px 16px rgba(58,141,222,0.2);
+  background: #3a8dde;
+  flex: 0 0 160px;
+}
+.ceo-photo-face {
+  width: 320px;    /* More zoom */
+  height: 320px;   /* More zoom */
+  object-fit: cover;
+  position: absolute;
+  top: -40px;      /* Move image up */
+  left: -120px;    /* Move image right */
+}
+
     .ceo-bio {
       flex: 1 1 300px;
       color: var(--turquoise-light);
@@ -492,7 +512,14 @@
   <section class="section" id="ceo">
     <div class="section-title">Meet Our CEO</div>
     <div class="ceo-section">
-      <img class="ceo-photo" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Matt Effrey, CEO">
+     <div class="ceo-photo-wrapper">
+  <img
+    class="ceo-photo-face"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYrASmDUWJMoeK0Fu_saPnG1vU2-ZLAI0jIQ&s"
+    alt="Matt Effrey, CEO"
+  >
+</div>
+
       <div class="ceo-bio">
         <strong>Matt Effrey</strong> is the visionary CEO of Effrey Associates. With a reputation for unwavering integrity and strategic leadership, Matt has guided the firm into a new era of digital-first legal services. Under his stewardship, Effrey Associates has become synonymous with precision, innovation, and trust in legal documentation.<br><br>
         <em>“Our mission is simple: Deliver clarity, security, and confidence in every document we create.”</em>
